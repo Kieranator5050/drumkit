@@ -1,13 +1,14 @@
 'use strict'
-function handleClick(){
-    console.log("Click");;
-}
 
 document.addEventListener('DOMContentLoaded', ()=>{
     var buttons = document.getElementsByTagName('button');
 
     for (let i = 0; i < buttons.length; i++) {
-        const element = buttons[i];
-        element.addEventListener('click',handleClick);
+        const button = buttons[i];
+        button.addEventListener('click',()=>{
+            console.log(button.id);
+            var audio = new Audio("./sounds/"+button.id+".mp3");
+            audio.play();
+        });
     }
 })
