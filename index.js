@@ -1,11 +1,17 @@
 'use strict'
 
 function buttonAnimation(key){
-
+    let button = document.getElementById(key);
+    button.style.color = "white";
+    button.classList.add("pressed");
+    setTimeout(function(){
+        button.style.color = "red";
+        button.classList.remove("pressed");
+    },100)
 }
 
 async function playSound(soudName){
-    
+
     var audio = new Audio("./sounds/"+soudName+".mp3");
 
     audio.play();
@@ -20,8 +26,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
         let button = buttons[i];
 
         button.addEventListener('click',function(event){
-
-                button.style.color = "white";
 
                 playSound(button.id);
 
